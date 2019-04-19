@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.bin.david.form.core.SmartTable
+        android:id="@+id/fragmentsmarttable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ProgressBar
+        android:id="@+id/fragmentprogressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.nightonke.boommenu.BoomMenuButton
+        android:id="@+id/boommenubutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="5dp" />
+
+</FrameLayout>
