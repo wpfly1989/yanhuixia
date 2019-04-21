@@ -35,6 +35,7 @@ import android.widget.Toast;
 import com.bin.david.form.core.TableConfig;
 import com.bin.david.form.data.CellInfo;
 import com.bin.david.form.data.column.Column;
+import com.bin.david.form.data.format.IFormat;
 import com.bin.david.form.data.format.bg.BaseCellBackgroundFormat;
 import com.bin.david.form.data.format.bg.IBackgroundFormat;
 import com.bin.david.form.data.format.bg.ICellBackgroundFormat;
@@ -211,36 +212,58 @@ public class CommonFragment extends Fragment {
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+
+                            final IFormat<String> format =  new IFormat<String>() {
+                                @Override
+                                public String format(String aLong) {
+                                    String msg = "";
+
+                                    if (aLong.length() > 6 ) {
+                                        for (int i = 0; i < aLong.length() / 6; i++) {
+                                            msg = msg + aLong.substring(i * 6, (i + 1) * 6) + "\n";
+                                        }
+
+                                        if (aLong.length() % 6 > 1) {
+                                            msg = msg + aLong.substring(aLong.length() - aLong.length() % 6);
+                                        }
+                                    } else {
+                                        msg = aLong;
+                                    }
+
+                                    return msg;
+                                }
+                            };
+
                             Column<Integer> id = new Column<Integer>("行号","id");
-                            Column<String> name1 = new Column<String>(columnname.get(0),"name1");
-                            Column<String> name2 = new Column<String>(columnname.get(1),"name2");
-                            Column<String> name3 = new Column<String>(columnname.get(2),"name3");
-                            Column<String> name4 = new Column<String>(columnname.get(3),"name4");
-                            Column<String> name5 = new Column<String>(columnname.get(4),"name5");
-                            Column<String> name6 = new Column<String>(columnname.get(5),"name6");
-                            Column<String> name7 = new Column<String>(columnname.get(6),"name7");
-                            Column<String> name8 = new Column<String>(columnname.get(7),"name8");
-                            Column<String> name9 = new Column<String>(columnname.get(8),"name9");
-                            Column<String> name10 = new Column<String>(columnname.get(9),"name10");
-                            Column<String> name11 = new Column<String>(columnname.get(10),"name11");
-                            Column<String> name12 = new Column<String>(columnname.get(11),"name12");
-                            Column<String> name13 = new Column<String>(columnname.get(12),"name13");
-                            Column<String> name14 = new Column<String>(columnname.get(13),"name14");
-                            Column<String> name15 = new Column<String>(columnname.get(14),"name15");
-                            Column<String> name16 = new Column<String>(columnname.get(15),"name16");
-                            Column<String> name17 = new Column<String>(columnname.get(16),"name17");
-                            Column<String> name18 = new Column<String>(columnname.get(17),"name18");
-                            Column<String> name19 = new Column<String>(columnname.get(18),"name19");
-                            Column<String> name20 = new Column<String>(columnname.get(19),"name20");
-                            Column<String> name21 = new Column<String>(columnname.get(20),"name21");
-                            Column<String> name22 = new Column<String>(columnname.get(21),"name22");
-                            Column<String> name23 = new Column<String>(columnname.get(22),"name23");
-                            Column<String> name24 = new Column<String>(columnname.get(23),"name24");
-                            Column<String> name25 = new Column<String>(columnname.get(24),"name25");
-                            Column<String> name26 = new Column<String>(columnname.get(25),"name26");
-                            Column<String> name27 = new Column<String>(columnname.get(26),"name27");
-                            Column<String> name28 = new Column<String>(columnname.get(27),"name28");
-                            Column<String> name29 = new Column<String>(columnname.get(28),"name29");
+                            Column<String> name1 = new Column<String>(columnname.get(0),"name1",format);
+                            Column<String> name2 = new Column<String>(columnname.get(1),"name2",format);
+                            Column<String> name3 = new Column<String>(columnname.get(2),"name3",format);
+                            Column<String> name4 = new Column<String>(columnname.get(3),"name4",format);
+                            Column<String> name5 = new Column<String>(columnname.get(4),"name5",format);
+                            Column<String> name6 = new Column<String>(columnname.get(5),"name6",format);
+                            Column<String> name7 = new Column<String>(columnname.get(6),"name7",format);
+                            Column<String> name8 = new Column<String>(columnname.get(7),"name8",format);
+                            Column<String> name9 = new Column<String>(columnname.get(8),"name9",format);
+                            Column<String> name10 = new Column<String>(columnname.get(9),"name10",format);
+                            Column<String> name11 = new Column<String>(columnname.get(10),"name11",format);
+                            Column<String> name12 = new Column<String>(columnname.get(11),"name12",format);
+                            Column<String> name13 = new Column<String>(columnname.get(12),"name13",format);
+                            Column<String> name14 = new Column<String>(columnname.get(13),"name14",format);
+                            Column<String> name15 = new Column<String>(columnname.get(14),"name15",format);
+                            Column<String> name16 = new Column<String>(columnname.get(15),"name16",format);
+                            Column<String> name17 = new Column<String>(columnname.get(16),"name17",format);
+                            Column<String> name18 = new Column<String>(columnname.get(17),"name18",format);
+                            Column<String> name19 = new Column<String>(columnname.get(18),"name19",format);
+                            Column<String> name20 = new Column<String>(columnname.get(19),"name20",format);
+                            Column<String> name21 = new Column<String>(columnname.get(20),"name21",format);
+                            Column<String> name22 = new Column<String>(columnname.get(21),"name22",format);
+                            Column<String> name23 = new Column<String>(columnname.get(22),"name23",format);
+                            Column<String> name24 = new Column<String>(columnname.get(23),"name24",format);
+                            Column<String> name25 = new Column<String>(columnname.get(24),"name25",format);
+                            Column<String> name26 = new Column<String>(columnname.get(25),"name26",format);
+                            Column<String> name27 = new Column<String>(columnname.get(26),"name27",format);
+                            Column<String> name28 = new Column<String>(columnname.get(27),"name28",format);
+                            Column<String> name29 = new Column<String>(columnname.get(28),"name29",format);
 
                             for(int i = 0; i < commonItems.size(); i++) {
                                 commonItems1.add(commonItems.get(i));
@@ -259,6 +282,9 @@ public class CommonFragment extends Fragment {
                             table.getConfig().setShowTableTitle(false);
                             table.getConfig().setShowYSequence(false);
                             id.setFixed(true);
+
+
+
 
 
                             //boommenubutton点击事件
